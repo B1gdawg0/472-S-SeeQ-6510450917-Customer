@@ -26,11 +26,10 @@ services:
     networks:
       - newton
   
-  redisinsight:
+  redisinsight-customer:
     image: redislabs/redisinsight:latest
-    container_name: redisinsight
     ports:
-      - "5540:5540"
+      - "5541:5540"
     environment:
       - RI_ENCRYPTION_KEY=7Pca9Tcp9IDqJiy6l137HsLW4DDz7Y37tLIhndUzBzw=
     volumes:
@@ -42,7 +41,7 @@ services:
 networks:
   newton:
     external: true
-    name: seeq-backend_sail
+    name: 472-s-seeq-6510450917-backend_sail
 
 volumes:
   redisinsight:
