@@ -25,8 +25,25 @@ services:
           path: ./package.json
     networks:
       - newton
+  
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: redisinsight
+    ports:
+      - "5540:5540"
+    environment:
+      - RI_ENCRYPTION_KEY=7Pca9Tcp9IDqJiy6l137HsLW4DDz7Y37tLIhndUzBzw=
+    volumes:
+      - redisinsight:/data
+    restart: always
+    networks:
+      - newton
       
 networks:
   newton:
     external: true
     name: seeq-backend_sail
+
+volumes:
+  redisinsight:
+    driver: local
